@@ -1,0 +1,42 @@
+@font-face{
+    font-family: "Play Fair Normal";
+    src:url('../../../../assets/Playfair/PlayfairDisplay-Italic-VariableFont_wght.ttf');
+}
+    
+
+
+.form-title{
+    font-family: "Play Fair Normal", serif;
+    font-size: 3rem  ;
+}
+  
+.login-wrapper{
+    position: absolute;
+    padding: 5rem 6rem 5rem 6rem;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%);
+    border: 1px  solid black;
+    width: fit-content;
+}
+
+.form-group{
+    label{
+        color: gray;
+      }
+
+    input{
+        &:focus{
+            resize: none;
+            outline: none;
+        }
+        border: 0;
+        padding: 0;
+        border-bottom: 2px solid #eee;
+      }
+}
+
+.btn-form{
+    padding: 1rem 2rem 1rem 2rem;
+
+}

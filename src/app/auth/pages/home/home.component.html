@@ -1,0 +1,30 @@
+<!-- <div class="home-hero container">
+<div class="row">
+    <div class="col-8"><img class="img-fluid" src="../../../../assets/images/pexels-flora-westbrook-4139815.jpg" alt="imagen portada home" id="img-hero-home"></div>
+    <div class="col-4 d-flex flex-column justify-content-center " id="home-hero-text">
+        <h2 id="home-hero-text__title">mighty super cheesecake</h2>
+        <p class="mt-4" id="home-hero-text__text">Look no further for a creamy and
+            ultra smooth classic cheesecake
+            recipe! no one can deny its simple
+            decadence.</p>
+    </div>
+</div>
+</div>   -->
+
+<div class="recetas-wrapper">
+    <div class="recetas-wrapper">
+        <div class="card" style="width: 18rem;" *ngFor="let receta of recetas">
+            <div class="card-body">
+              <h5 class="card-title">Titulo: {{receta.titulo}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Dificultas: {{receta.dificultad}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">Comensales: {{receta.comensales}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">Tiempo de preparación: {{receta.tiempo}}</h6>
+              <p class="card-text">Descripción: {{receta.descripcion}}</p>
+              <a [routerLink]="['recetas/editarReceta/'+receta.id]" class="card-link">Editar Receta</a>
+              <a  [routerLink]="['recetas/recetaUnica/'+receta.id]"  class="card-link">Ver Receta</a>
+              <a  class="card-link" (click)="eliminarReceta(receta.id);">Eliminar Receta</a>
+          </div>
+          </div>
+    </div>
+</div>
+
