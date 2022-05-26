@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AccesoApiService } from '../services/acceso-api.service';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MainComponent } from './pages/main/main.component';
@@ -20,6 +19,10 @@ const routes: Routes = [
     path:'categorias',
     loadChildren: () => import ('./pages/categorias/categorias.module').then(m => m.CategoriasModule)
 
+  },
+  {
+    path:'perfil',
+    loadChildren: () => import ('./pages/perfil/perfil.module').then(m => m.PerfilModule)
   },
   {
     path: '',

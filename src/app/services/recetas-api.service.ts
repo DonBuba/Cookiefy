@@ -52,6 +52,11 @@ export class RecetasApiService {
     return this.http.get(`${this.apiUrl}/getRecipeByCategory/`+idCategoria)
 
   }
+
+  getRecetasByUser(idUsuario:any){
+    return this.http.get(`${this.apiUrl}/getRecipeByUser/`+idUsuario)
+
+  }
 }
 
 

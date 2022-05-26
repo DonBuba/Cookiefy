@@ -18,6 +18,7 @@ export class UsuariosApiService {
   }
 
   getUser(idUsuario:any):any{
+    console.log(idUsuario)
     return this.http.get(`${this.apiUrl}/getOneUser/`+idUsuario)
   }
 

@@ -10,6 +10,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { RecetasModule } from './pages/recetas/recetas.module';
 import { NoticiasModule } from './pages/noticias/noticias.module';
 import { CategoriasModule } from './pages/categorias/categorias.module';
+import { PerfilModule } from './pages/perfil/perfil.module';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { CategoriasModule } from './pages/categorias/categorias.module';
     FormsModule,
     RecetasModule,
     NoticiasModule,
-    CategoriasModule
+    CategoriasModule,
+    PerfilModule
   ]
 })
 export class AuthModule { }

@@ -15,7 +15,7 @@ export class AccesoApiService {
       localStorage.setItem('token',res.token);
       localStorage.setItem('user',res.user.username)
       localStorage.setItem('rol',res.user.rol)
-
+      localStorage.setItem('id',res.user.id)
       return res;
     })
   }
