@@ -7,12 +7,12 @@ import { noticiaData, NoticiasApiService } from 'src/app/services/noticias-api.s
   styleUrls: ['./crear-noticia.component.scss']
 })
 export class CrearNoticiaComponent implements OnInit {
-
+  idUsuario:any=localStorage.getItem('id')
   constructor(private noticias_api:NoticiasApiService) { }
   public noticiaData:noticiaData={
     titulo:'',
     cuerpo:'',
-    idCreador:3,
+    idCreador:this.idUsuario,
     link:''
   }
   ngOnInit(): void {

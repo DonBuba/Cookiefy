@@ -1,3 +1,26 @@
+
+<div class="container navbar">
+  <div class="row d-flex">
+      <div class="col">
+          <a [routerLink]="['']" class="navbar-brand">Cookiefy</a>
+      </div>
+      <div class="col mr-auto">
+          <ul class="d-flex flex-row nav-links">
+              <li><a [routerLink]="['recetas']">Recetas</a></li>
+              <li><a [routerLink]="['noticias']">Noticias</a></li>
+              <li><a [routerLink]="['about']">About</a></li>
+              <li><a [routerLink]="['login']" *ngIf=" rolUsuario == null">Login</a></li>
+              <li><a [routerLink]="['login']" *ngIf=" rolUsuario != null">Log Out</a></li>
+
+          </ul>
+      </div>
+      <div class="col">
+          <a style="cursor: pointer;" (click)="llevarPerfil()" *ngIf="rolUsuario=='ROLE_USER'">Perfil</a>
+      </div>
+  </div>    
+</div>
+
+
 <div class="login-wrapper container  rounded">
     <div class="row login-logo text-center">
         <div class="col form-title">Añadir Receta</div>
@@ -64,3 +87,57 @@
             </form>
     </div>
 </div>
+
+<footer class="container-fluid mt-5">
+  <div class="row">
+      <div class="footer-text col-5 offset-1">
+          <h3>Daily Cooking Tips and  recipes to your inbox !</h3>
+      </div>
+      <div class="footer-form col-5 offset-1 align-self-center">
+          <form action="" class="newsletter">
+              <input type="email">
+              <button>JOIN!</button>
+          </form>
+      </div>
+  </div>
+</footer>
+
+<div class="container-fluid links align-center justify-content-center align-content-center">
+  <div class="row">
+      <div class="col-5 offset-1">
+          <h3>cookiefy</h3>
+          <p>"On the other hand, we denounce with righteous 
+              indignation and dislike men who are so beguiled 
+              and demoralized by the charms of pleasure of the
+               moment</p>
+      </div>
+      
+      <div class="col-2">
+          <ul>
+              <li>Cookiefy</li>
+              <li>About Us</li>
+              <li>Careers</li>
+              <li>Contact us</li>
+              <li>Feedback</li>
+          </ul>
+      </div>
+      <div class="col-2">
+          <ul>
+              <li>Legal</li>
+              <li>Terms</li>
+              <li>Conditions</li>
+              <li>Cookies</li>
+              <li>Capyright</li>
+          </ul>
+      </div>
+      <div class="col-2">
+          <ul>
+              <li>Follow</li>
+              <li>Facebook</li>
+              <li>Twitter</li>
+              <li>Instagram</li>
+              <li>Youtube</li>
+          </ul>
+      </div>
+  </div>
+</div> 

@@ -8,6 +8,8 @@ import { NoticiasApiService } from 'src/app/services/noticias-api.service';
 })
 export class ListadoNoticiaComponent implements OnInit {
   noticias:any
+  rolUsuario:any=localStorage.getItem('rol')
+
   constructor(private noticias_api:NoticiasApiService) { 
     this.obtenerNoticias();
   }

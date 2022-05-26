@@ -60,6 +60,8 @@ export class EditarRecetaComponent implements OnInit {
   ]
 
   categoriasSelectOpt=[]
+  rolUsuario:any=localStorage.getItem('rol')
+
   public editarReceta:editarReceta={
     titulo:this.datosAntiguos.titulo,
     cuerpo:this.datosAntiguos.cuerpo,
@@ -102,5 +104,17 @@ export class EditarRecetaComponent implements OnInit {
     })
   }
 
+  llevarPerfil(){
+    console.log(this.rolUsuario)
+    if(this.rolUsuario !=null){
+     if(this.rolUsuario === 'ROLE_USER'){
+      console.log("logueado  y usuario")
+     }else{
+      console.log("logueado  y admin")
+     }
+    }else{
+      console.log("No logueado")
+    }
+  }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AccesoApiService } from 'src/app/services/acceso-api.service';
 import { CategoriasApiService } from 'src/app/services/categorias-api.service';
 import { RecetasApiService } from 'src/app/services/recetas-api.service';
 
@@ -12,7 +13,7 @@ export class MainComponent implements OnInit {
   recetas : any[] =  []
   categorias: any[] = []
   rolUsuario:any=localStorage.getItem('rol')
-  constructor(private recetas_api:RecetasApiService,private router: Router, private categorias_api:CategoriasApiService) { }
+  constructor(private recetas_api:RecetasApiService,private router: Router, private categorias_api:CategoriasApiService, private acceso_api:AccesoApiService) { }
 
   ngOnInit(): void {
     this.getRecetas();
@@ -33,15 +34,19 @@ export class MainComponent implements OnInit {
   }
 
   llevarPerfil(){
-    console.log(this.rolUsuario)
     if(this.rolUsuario !=null){
      if(this.rolUsuario === 'ROLE_USER'){
-      console.log("logueado  y usuario")
+      this.router.navigateByUrl('/perfil')
      }else{
       console.log("logueado  y admin")
      }
     }else{
       console.log("No logueado")
     }
+  }
+
+  logOut(){
+    this.acceso_api.logOut()
+    location.reload();
   }
 }

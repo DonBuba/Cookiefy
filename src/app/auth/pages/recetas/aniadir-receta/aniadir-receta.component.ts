@@ -59,13 +59,16 @@ export class AniadirRecetaComponent implements OnInit {
   ]
 
   categoriasSelectOpt=[]
+  rolUsuario:any=localStorage.getItem('rol')
+  idUsuario:any=localStorage.getItem('id')
+
 
   public aniadirReceta:aniadirReceta = {
     titulo:'',
     cuerpo:'',
     link:'',
     categoria:0,
-    idCreador:3,
+    idCreador:this.idUsuario,
     ingredientes:'',
     descripcion:'',
     dificultad:'',
@@ -93,5 +96,18 @@ export class AniadirRecetaComponent implements OnInit {
   addReceta(){
     console.log(this.aniadirReceta)
     this.recetas_api.addReceta(this.aniadirReceta)
+  }
+
+  llevarPerfil(){
+    console.log(this.rolUsuario)
+    if(this.rolUsuario !=null){
+     if(this.rolUsuario === 'ROLE_USER'){
+      console.log("logueado  y usuario")
+     }else{
+      console.log("logueado  y admin")
+     }
+    }else{
+      console.log("No logueado")
+    }
   }
 }

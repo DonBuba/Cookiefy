@@ -10,6 +10,8 @@ import { RecetasApiService } from 'src/app/services/recetas-api.service';
 export class ResultadosBusquedaComponent implements OnInit {
   idCategoria=this.router.snapshot.paramMap.get('id')
   recetas:any=[]
+  rolUsuario:any=localStorage.getItem('rol')
+
   constructor(private router:ActivatedRoute, private recetas_api:RecetasApiService) {
     this.obtenerByCategoria();
    }

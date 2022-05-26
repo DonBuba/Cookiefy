@@ -96,3 +96,22 @@ footer{
         }
     }
 }
+
+.nav-links{
+    list-style: none;
+    li{
+        &:not(&:first-child){
+            margin-left: 2rem;
+        }
+    }
+}
+
+.navbar{
+    margin-bottom: 8rem;
+   padding-top: 3rem;
+   width: 100vw;
+
+   .row{
+       width: 100%;
+   }
+}

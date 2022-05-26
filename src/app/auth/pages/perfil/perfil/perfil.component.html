@@ -1,34 +1,49 @@
-<div class="container">
-    <div class="row">
-        <div class="col noticias-titulo">
-            <h2>Noticias</h2>
-        </div>
+<div class="container mt-5" *ngFor="let dato of usuario">
+    <div class="row mb-3">
+        <h3>Mis datos</h3>
     </div>
-</div>
-<div class="container mt-5">
     <div class="row">
-        <div class="col-4 offset-1">
-            <button class="btn btn-primary" [routerLink]="['crearNoticia']" *ngIf="rolUsuario == 'ROLE_ADMIN'">Añadir Noticia</button>
-        </div>
-    </div>
-</div>
-<div class="container mt-5" *ngFor="let noticia of noticias">
-    <div class="row d-flex flex-row">
-        <div class="col d-flex flex-column p-5">
-            <h3>{{noticia.titulo}}</h3>
-            <p class="mt-4">{{noticia.cuerpo}}</p>
-            <div class="container">
+        <div class="col">
+            <div class="container datos-perfil">
                 <div class="row">
                     <div class="col">
-                        <button class="btn btn-primary" [routerLink]="['editarNoticia/'+ noticia.id]" *ngIf="rolUsuario == 'ROLE_ADMIN'">Editar</button>
-                        <button class="btn btn-danger" (click)="borrarNoticia(noticia.id);" *ngIf="rolUsuario == 'ROLE_ADMIN'">Eliminar</button>
+                        <div>
+                            <p>Nombre</p>
+                        <p>{{dato.username}}</p>
+                        </div>
+                        <div>
+                            <p>Email</p>
+                            <p>{{dato.email}}</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <p>Fech.creación</p>
+                            <p>{{dato.created_at| date:'yyyy-MM-dd'}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="container mt-5" >
+    <div class="row  mb-3" style="border-bottom: solid 1px black;">
         <div class="col">
-            <img class="img-fluid" src="{{noticia.link}}" alt="">
+            <h3>Mis Recetas</h3>
         </div>
+    </div>
+    <div class="row mt-5" *ngFor="let receta of recetas[0]">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{receta.imagen}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{receta.titulo}}</h5>
+              <p class="card-text">{{receta.descripcion}}</p>
+              <a (click)="llevarRecetaUnica(receta.id)" class="btn btn-primary">Ver</a>
+              <a [routerLink]="['/recetas/recetaUnica/'+receta.id]" class="btn btn-secondary">Editar</a>
+            </div>
+          </div>
     </div>
 </div>
 

@@ -11,6 +11,8 @@ import { RecetasApiService } from 'src/app/services/recetas-api.service';
 export class HomeComponent implements OnInit {
   recetas : any[] =  []
   categorias: any[] = []
+  rolUsuario:any=localStorage.getItem('rol')
+
   constructor(private router:Router, private categorias_api:CategoriasApiService, private recetas_api:RecetasApiService) { }
 
   ngOnInit(): void {

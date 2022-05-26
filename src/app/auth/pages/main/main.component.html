@@ -8,11 +8,13 @@
                 <li><a [routerLink]="['recetas']">Recetas</a></li>
                 <li><a [routerLink]="['noticias']">Noticias</a></li>
                 <li><a [routerLink]="['about']">About</a></li>
-                <li><a [routerLink]="['login']">Login</a></li>
+                <li><a [routerLink]="['login']" *ngIf=" rolUsuario == null">Login</a></li>
+                <li style="cursor: pointer;"><a (click)="logOut()" *ngIf=" rolUsuario != null">Log Out</a></li>
+
             </ul>
         </div>
         <div class="col">
-            <a style="cursor: pointer;" (click)="llevarPerfil()" *ngIf="rolUsuario=='ROLE_USER'">Perfil</a>
+            <a style="cursor: pointer; text-decoration: none; color: black;" [routerLink]="['perfil']" *ngIf="rolUsuario==='ROLE_USER'">Perfil</a>
         </div>
     </div>    
 </div>

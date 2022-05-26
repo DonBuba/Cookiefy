@@ -5,7 +5,13 @@
         </div>
     </div>
 </div>
-
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-4 offset-1">
+            <button class="btn btn-primary" [routerLink]="['aniadirReceta']" *ngIf="rolUsuario != null">Añadir Receta</button>
+        </div>
+    </div>
+</div>
 <div class="container" >
     <div class="row ">
         <div class="col recetas-wrapper">
@@ -17,9 +23,9 @@
                
                      <div class="row">
                          <div class="col d-flex flex-row">
-                            <a [routerLink]="['recetas/editarReceta/'+receta.id]" class="card-link btn  btn-secondary">Editar Receta</a>
-                            <a  [routerLink]="['recetas/recetaUnica/'+receta.id] "  class="card-link  btn btn-primary">Ver Receta</a>
-                            <a  class="card-link btn btn-danger" (click)="eliminarReceta(receta.id);">Eliminar Receta</a>
+                            <a [routerLink]="['editarReceta/'+receta.id]" class="card-link btn  btn-secondary"  *ngIf="rolUsuario == 'ROLE_ADMIN'">Editar Receta</a>
+                            <a  [routerLink]="['recetaUnica/'+receta.id] "  class="card-link  btn btn-primary">Ver Receta</a>
+                            <a  class="card-link btn btn-danger" (click)="eliminarReceta(receta.id);"  *ngIf="rolUsuario == 'ROLE_ADMIN'">Eliminar Receta</a>
                          </div>
                      </div>
                 
