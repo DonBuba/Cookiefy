@@ -1,1 +1,182 @@
-<p>receta-unica works!</p>
+<ng-container *ngFor="let dato of receta">
+<div class="container" >
+    <div class="row receta__cabecera mb-5 py-3">
+        <div class="col-6" >
+            <h2>{{dato.titulo}}</h2>
+        </div>
+
+        <div class="col-6 d-flex flex-row">
+           Autor: <p>{{dato.idCreador}}</p>
+        </div>
+        <div class="col">
+            Fecha de publicación: {{dato.created_at | date:'yyyy-MM-dd'}}
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row  mb-3">
+   <div class="col">
+    <p>{{dato.descripcion}}</p>
+
+   </div>
+   <div class="col">
+    <img class="img-fluid" src="{{dato.imagen}}" alt=".." style="max-height: 60vh;">
+   </div>
+        
+    </div>
+    <div class="row d-flex flex-row mt-3 datos-receta">
+        <div class="col-2"> <p>TIEMPO DE COCINADO</p> <span>{{dato.tiempo}} MIN</span> </div>
+        <div class="col-2"> <p>NUM. COMENSALES</p> <span>{{dato.comensales}} PERSONAS</span> </div>
+        <div class="col-2"> <p>DIFICULTAD</p> <span>{{dato.dificultad}}</span> </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-5 offset-1 tabla" style="background-color: #ECECEC;">
+            <h3>Ingredientes</h3>
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 offset-1 mt-5">
+                        <ul style="list-style: none;">
+                            <li>{{dato.ingredientes}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+
+        <div class="col-5 tabla" style="background-color: #ECECEC;">
+            <h3>Valores Nutricionales</h3>
+            <div class="container mb-3">
+                <div class="row">
+                    <div class="datos-nut col-10 mx-auto  mt-5 d-flex flex-row justify-content-between">
+                       <p>Calorias</p> <p>219.9</p>
+                    </div>
+                    <div class="datos-nut col-10 mx-auto  mt-3 d-flex flex-row justify-content-between">
+                        <p>Grasas</p> <p>10.7g</p>
+                     </div>
+                     <div class="datos-nut col-10 mx-auto  mt-3 d-flex flex-row justify-content-between">
+                        <p>Colesterol</p> <p>37mg</p>
+                     </div>
+                     <div class="datos-nut col-10 mx-auto  mt-3 d-flex flex-row justify-content-between">
+                        <p>Proteinas</p> <p>7.9g</p>
+                     </div>
+                </div>
+            </div>
+          
+        </div>
+       
+    </div>
+</div>
+
+<div class="container instrucciones ">
+    <div class="row d-flex flex-column">
+        <div class="col mb-3">
+            <h3>Elaboración</h3>
+        </div>
+        <div class="col">
+            <p>
+                To prepare crust add graham crackers to a food processor and process
+ until you reach fine crumbs. Add melted butter and pulse 3-4 times to
+ coat crumbs with butter.
+ Next, add the gelatine and water to a small mixing bowl and mix to combine.
+ Microwave for 30 seconds.
+ Add the warm cream and melted gelatin mixture and mix until well combined.
+ Add 1/3 of the mixture to a mixing bowl, add purple food gel and mix until well 
+combined. Colour 1/3 of the mixture blue. Split the remaining mixture into two
+ mixing bowls, colour one pink and leave the other white.
+            </p>
+        </div>
+    </div>
+</div>
+</ng-container>
+
+<div class="container comentarios mt-5">
+    <div class="row d-flex flex-column">
+        <div class="col comentarios__titulo mb-5">
+            <h3>Comentarios</h3>
+        </div>
+        <div class="col comentarios__comentarios mb-3" *ngFor="let comentario of comentarios"> 
+            <div class="row d-flex flex-column">
+                <div class="col">{{comentario.created_at | date:'yyyy-MM-dd'}}<div>
+                <div class="col mt-3">{{comentario.contenido}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container aniadirComentario mt-5">
+    <div class="row d-flex flex-column">
+        <div class="col mb-3">
+            <h3>Añade un comentario</h3>
+        </div>
+        <div class="col">
+            <form #forumario="ngForm">
+                <div class="form-group mt-4 d-flex flex-column">
+                    <textarea #self="ngModel" rows="5"  [(ngModel)]="comentarioData.contenido" type="text" required name="contenido" id="contenido"></textarea>
+                </div>
+                <div class="mt-5">
+                    <button type="submit" class="btn login  text-white btn-form" (click)="aniadirComentario()" style="background-color: #FF642B;">Añadir</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer class="container-fluid mt-5">
+    <div class="row">
+        <div class="footer-text col-5 offset-1">
+            <h3>Daily Cooking Tips and  recipes to your inbox !</h3>
+        </div>
+        <div class="footer-form col-5 offset-1 align-self-center">
+            <form action="" class="newsletter">
+                <input type="email">
+                <button>JOIN!</button>
+            </form>
+        </div>
+    </div>
+</footer>
+
+
+<div class="container-fluid links align-center justify-content-center align-content-center">
+    <div class="row">
+        <div class="col-5 offset-1">
+            <h3>cookiefy</h3>
+            <p>"On the other hand, we denounce with righteous 
+                indignation and dislike men who are so beguiled 
+                and demoralized by the charms of pleasure of the
+                 moment</p>
+        </div>
+        
+        <div class="col-2">
+            <ul>
+                <li>Cookiefy</li>
+                <li>About Us</li>
+                <li>Careers</li>
+                <li>Contact us</li>
+                <li>Feedback</li>
+            </ul>
+        </div>
+        <div class="col-2">
+            <ul>
+                <li>Legal</li>
+                <li>Terms</li>
+                <li>Conditions</li>
+                <li>Cookies</li>
+                <li>Capyright</li>
+            </ul>
+        </div>
+        <div class="col-2">
+            <ul>
+                <li>Follow</li>
+                <li>Facebook</li>
+                <li>Twitter</li>
+                <li>Instagram</li>
+                <li>Youtube</li>
+            </ul>
+        </div>
+    </div>
+</div> 

@@ -1,0 +1,96 @@
+@font-face{
+    font-family: "Play Fair Normal";
+    src:url('../../../../../assets/Playfair/PlayfairDisplay-Italic-VariableFont_wght.ttf');
+}
+    
+
+
+.form-title{
+    font-family: "Play Fair Normal", serif;
+    font-size: 3rem  ;
+}
+  
+.login-wrapper{
+    position: relative;
+    padding: 5rem 6rem 5rem 6rem;
+    
+    border: 1px  solid black;
+    width: fit-content;
+}
+
+.form-group{
+    label{
+        color: gray;
+      }
+
+    input{
+        &:focus{
+            resize: none;
+            outline: none;
+        }
+        border: 0;
+        padding: 0;
+        border-bottom: 2px solid #eee;
+      }
+}
+
+.btn-form{
+    padding: 1rem 2rem 1rem 2rem;
+
+}
+
+
+footer{
+    background-color: #FFD8CA !important;
+    background-size: 100%;
+    padding: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    .footer-text{
+        font-family: "Play Fair Normal", serif;
+        font-size: 7rem ;
+    }
+
+    .footer-form{
+        input{
+            border: none;
+            padding: 0.5rem;
+        }
+
+        button{
+            color: white;
+            background-color: #FF642B;
+            padding: 0.5rem;
+            border: none;
+        }
+    }
+}
+
+.links{
+    padding: 4rem 2rem 2rem 4rem;
+    background-color: #cccaca98;
+    .col-5{
+        h3{
+            text-transform: capitalize;
+            font-family: "Play Fair Normal", serif;
+        }
+    }
+
+    .col-2{
+        width: fit-content;
+        margin-left: 3rem;
+        ul{
+            list-style: none;
+            li{
+                color: gray;
+                padding-top: 0.2rem;
+            }
+            :first-child{
+               font-weight: bold;
+               color: black;
+            }
+        }
+    }
+}

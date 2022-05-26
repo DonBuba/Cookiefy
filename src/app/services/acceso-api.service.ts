@@ -10,11 +10,18 @@ export class AccesoApiService {
   constructor(private http:HttpClient) { }
 
   login(loginData:LoginDataRequest){
-     this.http.post(`${this.apiUrl}/login`,loginData).subscribe(res => {
+     this.http.post(`${this.apiUrl}/login`,loginData).subscribe((res:any) => {
       console.log(res,loginData);
-      // localStorage.setItem('tokem)
+      localStorage.setItem('token',res.token);
+      localStorage.setItem('user',res.user.username)
+      localStorage.setItem('rol',res.user.rol)
+
       return res;
     })
+  }
+
+  logOut(){
+     localStorage.clear();
   }
 }
 

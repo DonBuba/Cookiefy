@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,31 @@ export class RecetasApiService {
   eliminarReceta(idReceta:any){
     return this.http.delete(`${this.apiUrl}/deleteRecipe/`+idReceta)
   }
+
+  getReceraById(recetaId:any){
+    return this.http.get(`${this.apiUrl}/getOneRecipe/`+recetaId)
+  }
+
+
+  aniadirComentario(comentarioData:comentarioData){
+    return this.http.post(`${this.apiUrl}/addComment/` ,comentarioData)
+  }
+
+  getComentariosByReceta(idReceta:any) {
+    console.log(idReceta)
+    return this.http.get(`${this.apiUrl}/getCommentByRecipe/`+idReceta)
+  }
+
+  editarReceta(editarReceta:editarReceta,idReceta:any){
+    console.log(editarReceta,idReceta)
+    return this.http.put(`${this.apiUrl}/updateRecipe/`+idReceta ,editarReceta)
+  }
+
+  getRecetasByCategoria(idCategoria:any){
+    console.log(idCategoria)
+    return this.http.get(`${this.apiUrl}/getRecipeByCategory/`+idCategoria)
+
+  }
 }
 
 
@@ -38,11 +64,31 @@ export interface aniadirReceta  {
   link:string,
   categoria:number,
   idCreador:number,
-  ingredientes?:[],
+  ingredientes?:string,
   descripcion:string,
   dificultad:string,
   tiempo:number,
   comensales:number,
   imagen: any
 
+}
+
+export interface comentarioData{
+  idUsuario:number,
+  idReceta:any,
+  contenido:string
+}
+
+export interface editarReceta {
+  titulo?:string,
+  cuerpo?:string,
+  link?:string,
+  categoria?:number,
+  idCreador?:number,
+  ingredientes?:[],
+  descripcion?:string,
+  dificultad?:string,
+  tiempo?:number,
+  comensales?:number,
+  imagen?: any
 }

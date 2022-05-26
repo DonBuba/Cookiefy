@@ -1,1 +1,121 @@
-<p>editar-receta works!</p>
+<div class="login-wrapper container  rounded">
+    <div class="row login-logo text-center">
+        <div class="col form-title">Editar Receta</div>
+    </div>
+    <div class="row input-wrapper">
+        <div class="col">
+            <form #forumario="ngForm" enctype="multipart/form-data">
+                <div class="d-flex flex-row">
+                <div class="col-5">
+                  <div class="form-group mt-4 d-flex flex-column">
+                      <label  for="email">Titulo</label>
+                      <input #self="ngModel" [(ngModel)]="editarReceta.titulo"  type="text" required name="titulo" id="titulo">
+                  </div>
+                  <div class="form-group mt-4 d-flex flex-column">
+                    <label for="contrasenia">Cuerpo</label>
+                    <textarea #self="ngModel" [(ngModel)]="editarReceta.cuerpo"   required name="cuerpo" id="cuerpo"></textarea>
+                  </div>
+                  <div class="form-group mt-4 d-flex flex-column">
+                      <label for="contrasenia">Link</label>
+                        <input #self="ngModel" [(ngModel)]="editarReceta.link" type="text" required name="link" id="link">
+                    </div>
+                    <div class="form-group mt-4 d-flex flex-column">
+                      <label for="contrasenia">Categoria</label>
+                      <select  #self="ngModel" [(ngModel)]="editarReceta.categoria" required  name="categoria" id="categoria">
+                          <option *ngFor="let categoria of categorias" [ngValue]="categoria.value">{{categoria.text}}</option>
+                      </select>                    </div>
+                    <div class="form-group mt-4 d-flex flex-column">
+                      <label for="contrasenia">Ingredientes</label>
+                      <select  #self="ngModel" [(ngModel)]="editarReceta.ingredientes" required  name="ingredientes" id="ingredientes" >
+                          <option *ngFor="let ingrediente of ingredientes" [ngValue]="ingrediente">{{ingrediente}}</option>
+                      </select>                  </div>
+                    </div>
+                    <div class="col-5 offset-1">
+                    <div class="form-group mt-4 d-flex flex-column">
+                      <label for="contrasenia">Descripción</label>
+                        <textarea #self="ngModel" [(ngModel)]="editarReceta.descripcion"  required name="descripción" id="descripción"></textarea>
+                    </div>
+                    <div class="form-group mt-4 d-flex flex-column">
+                      <label for="contrasenia">Dificultad</label>
+                      <select  #self="ngModel" [(ngModel)]="editarReceta.dificultad" required  name="dificultad" id="dificultad">
+                          <option *ngFor="let dif of dificultadSelectOpt" [ngValue]="dif.value">{{dif.text}}</option>
+                      </select>
+                    </div>
+                    <div class="form-group mt-4 d-flex flex-column">
+                      <label for="contrasenia">Tiempo</label>
+                      <select  #self="ngModel" [(ngModel)]="editarReceta.tiempo" required  name="tiempo" id="tiempo">
+                          <option *ngFor="let tmp of tiempoSelectOpt" [ngValue]="tmp.value">{{tmp.text}}</option>
+                      </select>
+                    </div>
+                    <div class="form-group mt-4 d-flex flex-column">
+                      <label for="contrasenia">Comensales</label>
+                      <select  #self="ngModel" [(ngModel)]="editarReceta.comensales" required  name="comensales" id="comensales">
+                          <option *ngFor="let comensal of comensalesSelectOpt" [ngValue]="comensal.value">{{comensal.text}}</option>
+                      </select>
+                  </div>
+                  <div class="form-group mt-4 d-flex flex-column">
+                      <label for="contrasenia">Imagen</label>
+                        <input #self="ngModel" [(ngModel)]="editarReceta.imagen" type="text" required name="imagen" id="imagen">
+                    </div>
+                  </div>
+                </div>
+                  <div class="text-center mt-5">
+                      <button type="submit" class="btn login  text-white btn-form" (click)="editarReceta2()" style="background-color: #FF642B;">Aceptar</button>
+                    </div>
+              </form>
+        </div>
+    </div>
+</div>
+<footer class="container-fluid mt-5">
+    <div class="row">
+        <div class="footer-text col-5 offset-1">
+            <h3>Daily Cooking Tips and  recipes to your inbox !</h3>
+        </div>
+        <div class="footer-form col-5 offset-1 align-self-center">
+            <form action="" class="newsletter">
+                <input type="email">
+                <button>JOIN!</button>
+            </form>
+        </div>
+    </div>
+</footer>
+
+<div class="container-fluid links align-center justify-content-center align-content-center">
+    <div class="row">
+        <div class="col-5 offset-1">
+            <h3>cookiefy</h3>
+            <p>"On the other hand, we denounce with righteous 
+                indignation and dislike men who are so beguiled 
+                and demoralized by the charms of pleasure of the
+                 moment</p>
+        </div>
+        
+        <div class="col-2">
+            <ul>
+                <li>Cookiefy</li>
+                <li>About Us</li>
+                <li>Careers</li>
+                <li>Contact us</li>
+                <li>Feedback</li>
+            </ul>
+        </div>
+        <div class="col-2">
+            <ul>
+                <li>Legal</li>
+                <li>Terms</li>
+                <li>Conditions</li>
+                <li>Cookies</li>
+                <li>Capyright</li>
+            </ul>
+        </div>
+        <div class="col-2">
+            <ul>
+                <li>Follow</li>
+                <li>Facebook</li>
+                <li>Twitter</li>
+                <li>Instagram</li>
+                <li>Youtube</li>
+            </ul>
+        </div>
+    </div>
+</div> 

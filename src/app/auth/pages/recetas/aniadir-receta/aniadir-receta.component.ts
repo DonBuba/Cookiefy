@@ -66,23 +66,26 @@ export class AniadirRecetaComponent implements OnInit {
     link:'',
     categoria:0,
     idCreador:3,
-    ingredientes:[],
+    ingredientes:'',
     descripcion:'',
     dificultad:'',
     tiempo:0,
     comensales:0,
     imagen : undefined
   }
-  constructor(private recetas_api:RecetasApiService,private router: Router,private categorias_api:CategoriasApiService) { }
+  constructor(private recetas_api:RecetasApiService,private router: Router,private categorias_api:CategoriasApiService) { 
+    this.obtenerCategorias();
+
+  }
 
   ngOnInit(): void {
-    this.obtenerCategorias();
   }
 
    obtenerCategorias(){
     this.categorias_api.obtenerCategorias().subscribe( (res:any) => {
       res.forEach( (cat:any) => {
         this.categorias.push({value:cat.id, text:cat.nombre})
+        console.log(this.categorias)
       })
 
     })

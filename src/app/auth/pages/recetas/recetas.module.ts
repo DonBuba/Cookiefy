@@ -7,6 +7,7 @@ import { EditarRecetaComponent } from './editar-receta/editar-receta.component';
 import { RecetaUnicaComponent } from './receta-unica/receta-unica.component';
 import { ResultadosBusquedaComponent } from './resultados-busqueda/resultados-busqueda.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RecetasRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    FontAwesomeModule
   ]
 })
 export class RecetasModule { }

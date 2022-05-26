@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   login(){
     console.log(this.loginData)
     this.acceso_api.login(this.loginData)
-    this.router.navigateByUrl('auth/registro')
+    this.router.navigateByUrl('auth')
   }
 
 }

@@ -12,6 +12,16 @@ const routes: Routes = [
     loadChildren: () => import ('./pages/recetas/recetas.module').then(m => m.RecetasModule)
   },
   {
+    path:'noticias',
+    loadChildren: () => import ('./pages/noticias/noticias.module').then(m => m.NoticiasModule)
+
+  },
+  {
+    path:'categorias',
+    loadChildren: () => import ('./pages/categorias/categorias.module').then(m => m.CategoriasModule)
+
+  },
+  {
     path: '',
     component: MainComponent,
     children: [

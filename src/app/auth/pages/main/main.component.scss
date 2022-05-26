@@ -4,7 +4,15 @@
     src:url('../../../../assets/Playfair/PlayfairDisplay-VariableFont_wght.ttf');
 }
     
+.navbar{
+    margin-bottom: 8rem;
+   padding-top: 3rem;
+   width: 100vw;
 
+   .row{
+       width: 100%;
+   }
+}
 
 footer{
     background-color: #FFD8CA !important;
@@ -57,6 +65,15 @@ footer{
                font-weight: bold;
                color: black;
             }
+        }
+    }
+}
+
+.nav-links{
+    list-style: none;
+    li{
+        &:not(&:first-child){
+            margin-left: 2rem;
         }
     }
 }

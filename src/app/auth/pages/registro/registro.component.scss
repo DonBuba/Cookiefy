@@ -11,11 +11,9 @@
 }
   
 .login-wrapper{
-    position: absolute;
+    position: relative;
     padding: 5rem 6rem 5rem 6rem;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%);
+    margin:auto;
     border: 1px  solid black;
     width: fit-content;
 }

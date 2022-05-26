@@ -8,7 +8,7 @@ import { ResultadosBusquedaComponent } from './resultados-busqueda/resultados-bu
 const routes: Routes = [
   {path:'aniadirReceta', component:AniadirRecetaComponent},
   {path:'editarReceta/:id',component:EditarRecetaComponent},
-  {path:'resultados',component:ResultadosBusquedaComponent},
+  {path:'resultados/:id',component:ResultadosBusquedaComponent},
   {path:'recetaUnica/:id',component:RecetaUnicaComponent},
   {path:'**',component:ResultadosBusquedaComponent}
 ];

@@ -12,4 +12,15 @@ export class CategoriasApiService {
   obtenerCategorias(){
      return this.http.get(`${this.apiUrl}/getAllCategories`)
   }
+
+  crearCategoria(categoriaData:categoriaData){
+    console.log(categoriaData)
+    return this.http.post(`${this.apiUrl}/addCategory`,categoriaData)
+  }
+}
+
+export interface categoriaData{
+    nombre:string,
+    descripcion:string,
+    imagen:string
 }

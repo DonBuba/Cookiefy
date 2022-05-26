@@ -11,6 +11,7 @@ import { RecetasApiService } from 'src/app/services/recetas-api.service';
 export class MainComponent implements OnInit {
   recetas : any[] =  []
   categorias: any[] = []
+  rolUsuario:any=localStorage.getItem('rol')
   constructor(private recetas_api:RecetasApiService,private router: Router, private categorias_api:CategoriasApiService) { }
 
   ngOnInit(): void {
@@ -29,5 +30,18 @@ export class MainComponent implements OnInit {
      this.recetas = res;
      console.log(this.categorias)
    })
+  }
+
+  llevarPerfil(){
+    console.log(this.rolUsuario)
+    if(this.rolUsuario !=null){
+     if(this.rolUsuario === 'ROLE_USER'){
+      console.log("logueado  y usuario")
+     }else{
+      console.log("logueado  y admin")
+     }
+    }else{
+      console.log("No logueado")
+    }
   }
 }
