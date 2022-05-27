@@ -4,7 +4,7 @@
 
 export const environment = {
   production: true,
-  apiUrl:'https://cookiefy-back.herokuapp.com'
+  apiUrl:'http://localhost:3000'
 
 };
 
