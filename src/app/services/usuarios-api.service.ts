@@ -24,7 +24,7 @@ export class UsuariosApiService {
 
   actualizarUser(userAct:userAct,idUsuario:any){
     console.log(userAct,idUsuario)
-    return this.http.put(`${this.apiUrl}/updateUser/`+JSON.stringify(idUsuario),userAct)
+    return this.http.put(`${this.apiUrl}/updateUser/`+idUsuario,userAct)
 
   }
 
