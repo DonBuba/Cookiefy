@@ -23,7 +23,7 @@ export class RecetaUnicaComponent implements OnInit {
   creador:any[]=[]
   comentarios:any[]=[]
   public comentarioData:comentarioData={
-    idUsuario : 4,
+    idUsuario : this.idUsuario,
     idReceta : this.recetaId,
     contenido : ''
   }
@@ -53,6 +53,7 @@ export class RecetaUnicaComponent implements OnInit {
   aniadirComentario(){
     console.log(this.comentarioData)
     this.recetas_api.aniadirComentario(this.comentarioData).subscribe(res => {
+      console.log(res)
     })
   }
 

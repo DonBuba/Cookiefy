@@ -34,6 +34,7 @@ export class RecetasApiService {
 
 
   aniadirComentario(comentarioData:comentarioData){
+    console.log(comentarioData)
     return this.http.post(`${this.apiUrl}/addComment/` ,comentarioData)
   }
 
