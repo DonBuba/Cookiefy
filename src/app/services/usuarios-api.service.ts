@@ -22,7 +22,7 @@ export class UsuariosApiService {
     return this.http.get(`${this.apiUrl}/getOneUser/`+idUsuario)
   }
 
-  actualizarUser(userAct:userAct,idUsuario:any){
+  actualizarUser(userAct:userAct,idUsuario:number){
     console.log(userAct,idUsuario)
     return this.http.put(`${this.apiUrl}/updateUser/`+idUsuario,userAct)
 
