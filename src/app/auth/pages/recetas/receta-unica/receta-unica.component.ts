@@ -59,8 +59,8 @@ export class RecetaUnicaComponent implements OnInit {
 
   cogerComentariosPorReceta(){
     this.recetas_api.getComentariosByReceta(this.recetaId).subscribe( (res:any) =>{
-      console.log(res)
       this.comentarios.push(res[0]);
+      console.log(this.comentarios)
       return this.comentarios;
     })
   }
