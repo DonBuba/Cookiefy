@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AccesoApiService } from 'src/app/services/acceso-api.service';
 import { editarNoticiaData, NoticiasApiService } from 'src/app/services/noticias-api.service';
 
 @Component({
@@ -9,6 +10,8 @@ import { editarNoticiaData, NoticiasApiService } from 'src/app/services/noticias
 })
 export class EditarNoticiaComponent implements OnInit {
   idNoticia=this.router.snapshot.paramMap.get('id')
+  idUsuario:any=localStorage.getItem('id')
+  rolUsuario:any=localStorage.getItem('rol')
   noticia:any=[]
   public editarNoticiasData:editarNoticiaData={
     titulo:this.noticia.titulo,
@@ -16,7 +19,7 @@ export class EditarNoticiaComponent implements OnInit {
     idCreador:this.noticia.idCreador,
     link:this.noticia.imagen
   }
-  constructor(private noticias_api:NoticiasApiService,private router:ActivatedRoute) { 
+  constructor(private noticias_api:NoticiasApiService,private router:ActivatedRoute, private router2: Router, private acceso_api:AccesoApiService) { 
     this.obtenerDatosNoticia();
   }
 
@@ -34,5 +37,37 @@ export class EditarNoticiaComponent implements OnInit {
       console.log(res)
       this.noticia=res;
     })
+  }
+  llevarPerfil(){
+    if(this.rolUsuario !=null){
+     if(this.rolUsuario === 'ROLE_USER'){
+      this.router2.navigateByUrl('auth/perfil',this.idUsuario)
+     }else{
+      console.log("logueado  y admin")
+     }
+    }else{
+      console.log("No logueado")
+    }
+  }
+
+  editarPerfil(){
+    this.router2.navigateByUrl('perfil/editarPerfil',this.idUsuario)
+  }
+
+  llevarNoticias(){
+    this.router2.navigateByUrl('auth/noticias')
+  }
+
+  llevarRecetas(){ 
+    this.router2.navigateByUrl('auth/recetas')
+  }
+  logOut(){
+    this.acceso_api.logOut()
+    location.reload();
+  }
+
+  llevarLogin(){
+    this.router2.navigateByUrl('auth/login')
+
   }
 }

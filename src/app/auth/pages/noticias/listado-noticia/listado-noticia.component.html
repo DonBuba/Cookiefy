@@ -1,3 +1,24 @@
+<div class="container navbar">
+    <div class="row d-flex">
+        <div class="col">
+            <a [routerLink]="['']" class="navbar-brand">Cookiefy</a>
+        </div>
+        <div class="col mr-auto">
+            <ul class="d-flex flex-row nav-links">
+                <li><a (click)="llevarRecetas();">Recetas</a></li>
+                <li><a (click)="llevarNoticias()">Noticias</a></li>
+                <li><a [routerLink]="['about']">About</a></li>
+                <li><a (click)="llevarLogin()" *ngIf=" rolUsuario == null">Login</a></li>
+                <li><a (click)="logOut()" *ngIf=" rolUsuario != null">Log Out</a></li>
+  
+            </ul>
+        </div>
+        <div class="col">
+            <a style="cursor: pointer;" (click)="llevarPerfil()" *ngIf="rolUsuario=='ROLE_USER'">Perfil</a>
+        </div>
+    </div>    
+  </div>
+  
 <div class="container">
     <div class="row">
         <div class="col noticias-titulo">

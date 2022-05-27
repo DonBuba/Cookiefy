@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AccesoApiService } from 'src/app/services/acceso-api.service';
 import { CategoriasApiService } from 'src/app/services/categorias-api.service';
 import { editarReceta, RecetasApiService } from 'src/app/services/recetas-api.service';
 
@@ -61,6 +62,7 @@ export class EditarRecetaComponent implements OnInit {
 
   categoriasSelectOpt=[]
   rolUsuario:any=localStorage.getItem('rol')
+  idUsuario:any=localStorage.getItem('id')
 
   public editarReceta:editarReceta={
     titulo:this.datosAntiguos.titulo,
@@ -75,7 +77,7 @@ export class EditarRecetaComponent implements OnInit {
     comensales:this.datosAntiguos.comensales,
     imagen: this.datosAntiguos.imagen
   }
-  constructor(private router:ActivatedRoute, private recetas_api:RecetasApiService,private categorias_api:CategoriasApiService) { 
+  constructor(private router:ActivatedRoute, private recetas_api:RecetasApiService,private categorias_api:CategoriasApiService, private router2: Router, private acceso_api:AccesoApiService) { 
     this.obtenerDatos();
     this.obtenerCategorias();
   }
@@ -105,16 +107,36 @@ export class EditarRecetaComponent implements OnInit {
   }
 
   llevarPerfil(){
-    console.log(this.rolUsuario)
     if(this.rolUsuario !=null){
      if(this.rolUsuario === 'ROLE_USER'){
-      console.log("logueado  y usuario")
+      this.router2.navigateByUrl('auth/perfil',this.idUsuario)
      }else{
       console.log("logueado  y admin")
      }
     }else{
       console.log("No logueado")
     }
+  }
+
+  editarPerfil(){
+    this.router2.navigateByUrl('perfil/editarPerfil',this.idUsuario)
+  }
+
+  llevarNoticias(){
+    this.router2.navigateByUrl('auth/noticias')
+  }
+
+  llevarRecetas(){ 
+    this.router2.navigateByUrl('auth/recetas')
+  }
+  logOut(){
+    this.acceso_api.logOut()
+    location.reload();
+  }
+
+  llevarLogin(){
+    this.router2.navigateByUrl('auth/login')
+
   }
 
 }

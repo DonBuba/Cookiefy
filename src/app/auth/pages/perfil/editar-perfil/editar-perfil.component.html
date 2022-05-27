@@ -1,1 +1,53 @@
-<p>editar-perfil works!</p>
+<div class="container navbar">
+    <div class="row d-flex">
+        <div class="col">
+            <a [routerLink]="['']" class="navbar-brand">Cookiefy</a>
+        </div>
+        <div class="col mr-auto">
+            <ul class="d-flex flex-row nav-links">
+                <li><a (click)="llevarRecetas();">Recetas</a></li>
+                <li><a (click)="llevarNoticias()">Noticias</a></li>
+                <li><a [routerLink]="['about']">About</a></li>
+                <li><a (click)="llevarLogin()" *ngIf=" rolUsuario == null">Login</a></li>
+                <li><a (click)="logOut()" *ngIf=" rolUsuario != null">Log Out</a></li>
+  
+            </ul>
+        </div>
+        <div class="col">
+            <a style="cursor: pointer;" (click)="llevarPerfil()" *ngIf="rolUsuario=='ROLE_USER'">Perfil</a>
+        </div>
+    </div>    
+  </div>
+  
+<div class="login-wrapper container  rounded">
+    <div class="row login-logo text-center">
+        <div class="col form-title">Editar User</div>
+    </div>
+    <div class="row input-wrapper">
+        <div class="col">
+            <form #forumario="ngForm">
+                <div class="form-group mt-4 d-flex flex-column">
+                    <label  for="email">Username</label>
+                    <input #self="ngModel" [(ngModel)]="userAct.username" type="text" required name="username" id="username">
+                </div>
+                <div class="form-group mt-4 d-flex flex-column">
+                    <label  for="email">Email</label>
+                    <input #self="ngModel" [(ngModel)]="userAct.email" type="text" required name="email" id="email">
+                </div>
+                <div class="form-group mt-4 d-flex flex-column">
+                  <label for="contrasenia">Contraseña</label>
+                    <input #self="ngModel" [(ngModel)]="userAct.contrasenia" type="password" required name="contrasenia" id="contrasenia">
+                </div>
+                <div class="form-group mt-4 d-flex flex-column">
+                    <label for="contrasenia">Rol</label>
+                    <select  #self="ngModel" [(ngModel)]="userAct.rol" required  name="categoria" id="categoria">
+                        <option *ngFor="let rol of roles" [ngValue]="rol.value">{{rol.text}}</option>
+                    </select>  
+                  </div>
+                <div class="text-center mt-5">
+                    <button type="submit" class="btn login  text-white btn-form" (click)="editarUser()" style="background-color: #FF642B;">Iniciar Sesión</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>

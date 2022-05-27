@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AccesoApiService } from 'src/app/services/acceso-api.service';
 import { RecetasApiService } from 'src/app/services/recetas-api.service';
 
 @Component({
@@ -11,8 +12,11 @@ export class ResultadosBusquedaComponent implements OnInit {
   idCategoria=this.router.snapshot.paramMap.get('id')
   recetas:any=[]
   rolUsuario:any=localStorage.getItem('rol')
+  idUsuario:any=localStorage.getItem('id')
 
-  constructor(private router:ActivatedRoute, private recetas_api:RecetasApiService) {
+
+  constructor(private router:ActivatedRoute, private recetas_api:RecetasApiService,  private router2: Router, private acceso_api:AccesoApiService
+    ) {
     this.obtenerByCategoria();
    }
 
@@ -44,5 +48,39 @@ export class ResultadosBusquedaComponent implements OnInit {
       console.log(res);
     });
   }
+
+  llevarPerfil(){
+    if(this.rolUsuario !=null){
+     if(this.rolUsuario === 'ROLE_USER'){
+      this.router2.navigateByUrl('auth/perfil',this.idUsuario)
+     }else{
+      console.log("logueado  y admin")
+     }
+    }else{
+      console.log("No logueado")
+    }
+  }
+
+  editarPerfil(){
+    this.router2.navigateByUrl('perfil/editarPerfil',this.idUsuario)
+  }
+
+  llevarNoticias(){
+    this.router2.navigateByUrl('auth/noticias')
+  }
+
+  llevarRecetas(){ 
+    this.router2.navigateByUrl('auth/recetas')
+  }
+  logOut(){
+    this.acceso_api.logOut()
+    location.reload();
+  }
+
+  llevarLogin(){
+    this.router2.navigateByUrl('auth/login')
+
+  }
+  
 
 }

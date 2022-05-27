@@ -4,8 +4,8 @@ import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 import { PerfilComponent } from './perfil/perfil.component';
 
 const routes: Routes = [
-  {path:'editarPerfil',component:EditarPerfilComponent},
-  {path:'',component:PerfilComponent}
+  {path:'editarPerfil/:id',component:EditarPerfilComponent},
+  {path:'**',component:PerfilComponent}
 ];
 
 @NgModule({

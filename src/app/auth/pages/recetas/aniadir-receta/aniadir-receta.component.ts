@@ -1,6 +1,7 @@
 import { identifierName } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AccesoApiService } from 'src/app/services/acceso-api.service';
 import { CategoriasApiService } from 'src/app/services/categorias-api.service';
 import { aniadirReceta, RecetasApiService } from 'src/app/services/recetas-api.service';
 
@@ -76,7 +77,7 @@ export class AniadirRecetaComponent implements OnInit {
     comensales:0,
     imagen : undefined
   }
-  constructor(private recetas_api:RecetasApiService,private router: Router,private categorias_api:CategoriasApiService) { 
+  constructor(private recetas_api:RecetasApiService,private router: Router,private categorias_api:CategoriasApiService, private acceso_api:AccesoApiService) { 
     this.obtenerCategorias();
 
   }
@@ -99,15 +100,35 @@ export class AniadirRecetaComponent implements OnInit {
   }
 
   llevarPerfil(){
-    console.log(this.rolUsuario)
     if(this.rolUsuario !=null){
      if(this.rolUsuario === 'ROLE_USER'){
-      console.log("logueado  y usuario")
+      this.router.navigateByUrl('auth/perfil',this.idUsuario)
      }else{
       console.log("logueado  y admin")
      }
     }else{
       console.log("No logueado")
     }
+  }
+
+  editarPerfil(){
+    this.router.navigateByUrl('perfil/editarPerfil',this.idUsuario)
+  }
+
+  llevarNoticias(){
+    this.router.navigateByUrl('auth/noticias')
+  }
+
+  llevarRecetas(){ 
+    this.router.navigateByUrl('auth/recetas')
+  }
+  logOut(){
+    this.acceso_api.logOut()
+    location.reload();
+  }
+
+  llevarLogin(){
+    this.router.navigateByUrl('auth/login')
+
   }
 }

@@ -13,6 +13,8 @@ export class MainComponent implements OnInit {
   recetas : any[] =  []
   categorias: any[] = []
   rolUsuario:any=localStorage.getItem('rol')
+  idUsuario:any=localStorage.getItem('id')
+
   constructor(private recetas_api:RecetasApiService,private router: Router, private categorias_api:CategoriasApiService, private acceso_api:AccesoApiService) { }
 
   ngOnInit(): void {
@@ -45,8 +47,15 @@ export class MainComponent implements OnInit {
     }
   }
 
+  editarPerfil(){
+    if(this.rolUsuario === 'ROLE_USER'){
+      this.router.navigateByUrl('/perfil')     
+    }
+  }
   logOut(){
     this.acceso_api.logOut()
     location.reload();
   }
+
+ 
 }
