@@ -12,10 +12,10 @@ export class AccesoApiService {
   login(loginData:LoginDataRequest){
      this.http.post(`${this.apiUrl}/login`,loginData).subscribe((res:any) => {
       console.log(res,loginData);
-      localStorage.setItem('token',res.token);
-      localStorage.setItem('user',res.user.username)
-      localStorage.setItem('rol',res.user.rol)
-      localStorage.setItem('id',res.user.id)
+      localStorage.setItem('token',JSON.stringify(res.token));
+      localStorage.setItem('user',JSON.stringify(res.user.username))
+      localStorage.setItem('rol',JSON.stringify(res.user.rol))
+      localStorage.setItem('id',JSON.stringify(res.user.id))
       return res;
     })
   }
