@@ -75,7 +75,7 @@ export class AniadirRecetaComponent implements OnInit {
     dificultad:'',
     tiempo:0,
     comensales:0,
-    imagen : undefined
+    imagen : ''
   }
   constructor(private recetas_api:RecetasApiService,private router: Router,private categorias_api:CategoriasApiService, private acceso_api:AccesoApiService) { 
     this.obtenerCategorias();
