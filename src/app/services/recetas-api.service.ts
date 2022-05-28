@@ -61,7 +61,6 @@ export class RecetasApiService {
 //INTERFACES
 
 export interface aniadirReceta  {
-
   titulo:string,
   cuerpo:string,
   link:string,
@@ -73,7 +72,6 @@ export interface aniadirReceta  {
   tiempo:number,
   comensales:number,
   imagen: any
-
 }
 
 export interface comentarioData{
