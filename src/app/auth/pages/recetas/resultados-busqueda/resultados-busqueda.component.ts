@@ -82,5 +82,12 @@ export class ResultadosBusquedaComponent implements OnInit {
 
   }
   
+  editarReceta(idReceta:any){
+    this.router2.navigateByUrl('auth/recetas/editarReceta/'+idReceta)
+  }
+
+  verReceta(idReceta:any){
+    this.router2.navigateByUrl('auth/recetaUnica/'+idReceta)
+  }
 
 }
