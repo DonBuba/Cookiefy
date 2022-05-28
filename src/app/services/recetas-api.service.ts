@@ -14,10 +14,7 @@ export class RecetasApiService {
 
   addReceta(aniadirRecetaData:aniadirReceta){
     console.log(aniadirRecetaData)
-    return this.http.post(`${this.apiUrl}/addRecipe`,aniadirRecetaData).subscribe(res => {
-      console.log(res)
-      return res;
-    })
+    return this.http.post(`${this.apiUrl}/addRecipe`,aniadirRecetaData)
   }
 
   getRecetas(){

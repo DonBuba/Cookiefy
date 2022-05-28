@@ -96,7 +96,9 @@ export class AniadirRecetaComponent implements OnInit {
   }
   addReceta(){
     console.log(this.aniadirReceta)
-    this.recetas_api.addReceta(this.aniadirReceta)
+    this.recetas_api.addReceta(this.aniadirReceta).subscribe((res:any)=>{
+      console.log(res)
+    })
   }
 
   llevarPerfil(){
