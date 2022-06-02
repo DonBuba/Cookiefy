@@ -49,7 +49,7 @@ export class MainComponent implements OnInit {
 
   editarPerfil(){
     if(this.rolUsuario === 'ROLE_USER'){
-      this.router.navigateByUrl('/perfil')     
+      this.router.navigateByUrl('auth/perfil/editarPerfil'+this.idUsuario)     
     }
   }
   logOut(){

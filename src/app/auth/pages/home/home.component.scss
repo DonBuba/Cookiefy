@@ -1,20 +1,33 @@
 @font-face{
     font-family: "Play Fair Normal";
-    src:url('../../../../assets/Playfair/PlayfairDisplay-SemiBoldItalic.ttf');
+    src:url('../../../../assets/Playfair/PlayfairDisplay-VariableFont_wght.ttf');
 }
     
-
+@font-face{
+    font-family: "FellEnglish";
+    src:url('../../../../assets/FellEnglish/Regular.ttf');
+}
 
 .home-hero{
     background-color: #E3F0FF;
     padding: 0;
     border-radius: 2rem;
-
-   #home-hero-text{
-       text-transform: capitalize;
-   }
-
-   
+    margin-bottom: 8rem;
+    
+    &__text{
+        display: flex;
+        margin-left: 2rem;
+         flex-direction: column;
+         h3{
+            font-family: "Play Fair Normal";
+            font-size: clamp(1.8rem,2.2rem,2.5rem);
+             text-transform: capitalize;
+         }
+         justify-content: center;
+         p{
+             
+         }
+    }
     img{
         border-radius: 2rem 0rem 0rem 2rem;
     }
@@ -24,7 +37,7 @@
         padding-top: 5rem;
         margin: auto;
     h2{
-        font-family: "Play Fair Normal", serif;
+        font-family: "FellEnglish";
     }
     
 
@@ -51,7 +64,7 @@
   
 
     h2 {
-        font-family: "Play Fair Normal", serif;
+        font-family: "FellEnglish";
     }
 
     .categoria-card{
@@ -66,4 +79,58 @@
     //         margin-right: 2rem;
     //     }
     // }
+}
+
+.cat-txt{
+    font-family: "FellEnglish";
+}
+
+.arrow-hero{
+
+    i{
+        &:before{
+            color: black;
+            height: 10rem;
+            font-size: 3rem;
+        }
+    }
+    position: relative;
+    top: 15%;
+    left: 95%;
+    width:fit-content;
+
+}
+
+.receta-card{
+    
+  
+    &__text{
+        padding: 1rem;
+        height: 15rem;
+        margin: 0;
+        width: 100%;
+        background-color: #E3F0FF;
+       
+        h5{
+            font-family: "Play Fair Normal";
+            font-weight: bold;
+        }
+    }
+}
+
+
+.star-rating{
+    i{
+        font-size: 1.3rem;
+    }
+}
+
+.arrow-container{
+    i{
+        border-radius: 20px;
+        background-color: white;
+        color: black;
+        font-size:2rem;
+        padding: 0.5rem 1rem 0.5rem 1rem;
+    }
 }

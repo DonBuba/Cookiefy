@@ -1,13 +1,18 @@
 @font-face{
     font-family: "Play Fair Normal";
-    src:url('../../../../../assets/Playfair/PlayfairDisplay-SemiBoldItalic.ttf');
+    src:url('../../../../../assets/Playfair/PlayfairDisplay-Italic-VariableFont_wght.ttf');
 }
+@font-face{
+    font-family: "Play Fair O";
+    src:url('../../../../../assets/Playfair/PlayfairDisplay-VariableFont_wght.ttf');
+}
+
 
 .datos-receta{
     div{
         &:not(:last-child) {
             border-right: solid 1px grey;
-
+            
         }
 
         p{
@@ -154,10 +159,9 @@ footer{
 }
 
 .navbar{
-    margin-bottom: 8rem;
+    margin-bottom: 2rem;
    padding-top: 3rem;
-   width: 100vw;
-
+    height: 20vh;
    .row{
        width: 100%;
    }
@@ -168,5 +172,24 @@ footer{
         &:not(&:first-child){
             margin-left: 2rem;
         }
+        a{
+            font-family: "Play Fair O", serif;
+            font-size: clamp(0.8rem,1.3rem,1.5rem);
+            text-decoration: none;
+            color: black;
+        }
     }
+}
+
+.perfil{
+            font-family: "Play Fair O", serif;
+            font-size: clamp(0.8rem,1.3rem,1.5rem);
+            text-decoration: none;
+            color: black;
+}
+
+.logo{
+    width: 8rem;
+    height: 7rem;
+    transform: translateY(-30%);
 }

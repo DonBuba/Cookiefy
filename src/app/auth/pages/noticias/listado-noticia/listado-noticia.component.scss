@@ -2,12 +2,21 @@
     font-family: "Play Fair Normal";
     src:url('../../../../../assets/Playfair/PlayfairDisplay-Italic-VariableFont_wght.ttf');
 }
-    
+@font-face{
+    font-family: "Play Fair O";
+    src:url('../../../../../assets/Playfair/PlayfairDisplay-VariableFont_wght.ttf');
+}
 .noticias-titulo{
+    display: flex;
+    flex-direction: row;
+    
+    button{
+        justify-self: flex-end;
+    }
     h2{
         font-family: "Play Fair Normal", serif;
     }
-
+    padding-bottom: 1rem;
     border-bottom: solid 1px black;
 }
 
@@ -70,13 +79,10 @@ footer{
     margin-left: 2rem !important;
 }
 
-
-
 .navbar{
-    margin-bottom: 8rem;
+    margin-bottom: 2rem;
    padding-top: 3rem;
-   width: 100vw;
-
+    height: 20vh;
    .row{
        width: 100%;
    }
@@ -87,5 +93,25 @@ footer{
         &:not(&:first-child){
             margin-left: 2rem;
         }
+        a{
+            font-family: "Play Fair O", serif;
+            font-size: clamp(0.8rem,1.3rem,1.5rem);
+            text-decoration: none;
+            color: black;
+        }
     }
 }
+
+.perfil{
+            font-family: "Play Fair O", serif;
+            font-size: clamp(0.8rem,1.3rem,1.5rem);
+            text-decoration: none;
+            color: black;
+}
+
+.logo{
+    width: 8rem;
+    height: 7rem;
+    transform: translateY(-30%);
+}
+

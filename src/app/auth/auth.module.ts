@@ -11,6 +11,8 @@ import { RecetasModule } from './pages/recetas/recetas.module';
 import { NoticiasModule } from './pages/noticias/noticias.module';
 import { CategoriasModule } from './pages/categorias/categorias.module';
 import { PerfilModule } from './pages/perfil/perfil.module';
+import { AboutComponent } from './pages/about/about.component';
+import { ToastrService } from 'ngx-toastr';
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { PerfilModule } from './pages/perfil/perfil.module';
     LoginComponent,
     RegistroComponent,
     MainComponent,
-    HomeComponent
+    HomeComponent,
+    AboutComponent
     
   ],
   imports: [

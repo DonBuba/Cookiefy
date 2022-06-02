@@ -1,19 +1,37 @@
-
+<div class="container home-hero">
+    <div class="row">
+        <div class="col-6">
+            <img class="img-fluid" src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="imagen de portada home">
+        </div>
+        <div class="col-5 home-hero__text">
+            <h3>mighty super <br> cheesecake</h3>
+            <p class="mt-4">Look no further for a creamy and
+                ultra smooth classic cheesecake
+                recipe! no one can deny its simple
+                decadence.Look no further for a creamy and
+                ultra smooth classic cheesecake
+                recipe! no one can deny its simple
+                decadence.</p>
+        </div>
+    </div>
+</div>
 
 
 
     <div class="categorias-wrapper container">
-        <div class="row" >
-            <h2>Categorías</h2>
+        <div class="row mb-5" >
+            <div class="col">
+                <h2>Categorías</h2>
+            </div>
             <div class="col-2">
                 <button class="btn btn-primary" [routerLink]="['categorias']"  *ngIf="rolUsuario == 'ROLE_ADMIN'">Crear</button>
             </div>
         </div>
-        <div class="row owl-container mt-4">
+        <div class="row owl-container mt-4 ">
             <div class="col owl-carousel owl-theme" *ngFor="let categoria of categorias"> 
                 <div class="categoria-card item text-center">
                     <img src="{{categoria.imagen}}" alt="..." class="img-fluid rounded-circle">
-                    <a  style="text-decoration: none; color:black" [routerLink]="['recetas/resultados/'+categoria.id]"><h3 class="mt-3">{{categoria.nombre}}</h3></a>
+                    <a  class="cat-txt" style="text-decoration: none; color:black;" [routerLink]="['recetas/resultados/'+categoria.id]"><h3 class="mt-3">{{categoria.nombre}}</h3></a>
                 </div>
             </div>
         </div>
@@ -28,7 +46,7 @@
         </div>
         <div class="row">
             <div class="col   receta-col">
-                <div class="card receta"  *ngFor="let receta of recetas | slice:0:3">
+                <!-- <div class="card receta"  *ngFor="let receta of recetas | slice:0:3">
                     <img src="{{receta.imagen}}" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Titulo: {{receta.titulo}}</h5>
@@ -44,8 +62,37 @@
                       </div>
                     
                     </div>
-                  </div>
+                </div> -->
+
+                <div class="container receta-card" *ngFor="let receta of recetas | slice:0:3">
+                    <div class="row receta-card__imagen">
+                        <div class="col">
+                            <img class="img-fluid" src="{{receta.imagen}}" alt="imagen de portada de la receta">
+                        </div>
+                    </div>
+                    <div class="row d-flex flex-column receta-card__text">
+                        <div class="col d-flex flex-row align-items-center mb-2 star-rating">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                        </div>
+                        <div class="col"><h5>{{receta.titulo}}</h5></div>
+                        <div class="col">{{receta.descripcion}}</div>
+                        <div class="container d-flex justify-content-center mt-3 arrow-container">
+                            <div class="row ">
+                                  <div class="col d-flex flex-row ">
+                                      <a [routerLink]="['recetas/editarReceta/'+receta.id]" class="card-link btn     btn-secondary"  *ngIf="rolUsuario == 'ROLE_ADMIN'">Editar</a>
+                                      <a  [routerLink]="['recetas/recetaUnica/'+receta.id] "  class="card-link  btn btn-primary">Ver</a>
+                                      <a  class="card-link btn btn-danger" (click)="eliminarReceta(receta.id);"  *ngIf="rolUsuario == 'ROLE_ADMIN'">Eliminar</a>
+                                  </div>
+                              </div>
+                            
+                            </div>
+                    </div>
                 </div>
+            </div>
         </div>
     </div>
 

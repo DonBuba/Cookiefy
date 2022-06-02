@@ -1,13 +1,20 @@
-
 @font-face{
     font-family: "Play Fair Normal";
     src:url('../../../../../assets/Playfair/PlayfairDisplay-Italic-VariableFont_wght.ttf');
 }
-    
+@font-face{
+    font-family: "Play Fair O";
+    src:url('../../../../../assets/Playfair/PlayfairDisplay-VariableFont_wght.ttf');
+}
+
 
 .titulo{  
-    font-family: "Play Fair Normal", serif;
+    h3{
+        font-family: "Play Fair Normal", serif;
+    }
+    
     border-bottom: 1px black solid;
+    width: 100%;
 }
 
 .recetas-wrapper{
@@ -19,6 +26,20 @@
     grid-template-rows: repeat( auto-fit, minmax(250px, 1fr) );
     column-gap: 4rem;
     row-gap: 3rem;
+}
+
+
+.receta-col{
+    display: grid;
+    width: 70vw;
+    margin: auto;
+    margin-top: 3rem;
+    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+    column-gap: 4rem;
+
+    .receta{
+        margin: auto;
+    }
 }
 
 
@@ -78,11 +99,11 @@ footer{
     }
 }
 
-.navbar{
-    margin-bottom: 8rem;
-   padding-top: 3rem;
-   width: 100vw;
 
+.navbar{
+    margin-bottom: 2rem;
+   padding-top: 3rem;
+    height: 20vh;
    .row{
        width: 100%;
    }
@@ -93,5 +114,66 @@ footer{
         &:not(&:first-child){
             margin-left: 2rem;
         }
+        a{
+            font-family: "Play Fair O", serif;
+            font-size: clamp(0.8rem,1.3rem,1.5rem);
+            text-decoration: none;
+            color: black;
+        }
+    }
+}
+
+.perfil{
+            font-family: "Play Fair O", serif;
+            font-size: clamp(0.8rem,1.3rem,1.5rem);
+            text-decoration: none;
+            color: black;
+}
+
+.logo{
+    width: 8rem;
+    height: 7rem;
+    transform: translateY(-30%);
+}
+
+
+.receta-card{
+    width: 21rem;
+    min-height:30rem;
+    &__text{
+        padding: 1rem;
+        height: fit-content;
+        margin: 0;
+        width: 100%;
+        background-color: #E3F0FF;
+        
+        // &__desc{
+        //     text-overflow: ellipsis;
+        //     overflow: hidden; 
+        //     width: 16rem; 
+        //     height: 1.2em; 
+        //     white-space: nowrap;
+        // }
+        h5{
+            font-family: "Play Fair Normal";
+            font-weight: bold;
+        }
+    }
+}
+
+
+.star-rating{
+    i{
+        font-size: 1.3rem;
+    }
+}
+
+.arrow-container{
+    i{
+        border-radius: 20px;
+        background-color: white;
+        color: black;
+        font-size:2rem;
+        padding: 0.5rem 1rem 0.5rem 1rem;
     }
 }

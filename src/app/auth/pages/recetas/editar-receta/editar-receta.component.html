@@ -1,26 +1,27 @@
-
-<div class="container navbar">
+<div class="container-fluid navbar">
     <div class="row d-flex">
-        <div class="col">
-            <a [routerLink]="['']" class="navbar-brand">Cookiefy</a>
+        <div class="col-2 offset-1">
+            
+            <a [routerLink]="['']" class="navbar-brand"><img class="logo" src="../../../../assets/images/logo.png" alt="logo-cookiefy"></a>
         </div>
-        <div class="col mr-auto">
+        <div class="col-5 offset-1 mr-auto">
             <ul class="d-flex flex-row nav-links">
-                <li><a (click)="llevarRecetas();">Recetas</a></li>
-                <li><a (click)="llevarNoticias()">Noticias</a></li>
-                <li><a [routerLink]="['about']">About</a></li>
-                <li><a (click)="llevarLogin()" *ngIf=" rolUsuario == null">Login</a></li>
-                <li><a (click)="logOut()" *ngIf=" rolUsuario != null">Log Out</a></li>
-  
+                <li style="cursor: pointer;"><a (click)="llevarRecetas();">Recetas</a></li>
+                <li style="cursor: pointer;"><a (click)="llevarNoticias()">Noticias</a></li>
+                <li style="cursor: pointer;"><a (click)="llevarAbout()">About</a></li>
+                <li style="cursor: pointer;"><a (click)="llevarLogin()" *ngIf=" rolUsuario == null">Login</a></li>
+                <li style="cursor: pointer;"><a (click)="logOut()" *ngIf=" rolUsuario != null">Log Out</a></li>
+                <li style="cursor: pointer;"><a (click)="llevarEditarPerfil();" *ngIf=" rolUsuario ===  'ROLE_USER'">Editar perfil</a></li>
+
             </ul>
         </div>
-        <div class="col">
-            <a style="cursor: pointer;" (click)="llevarPerfil()" *ngIf="rolUsuario=='ROLE_USER'">Perfil</a>
+        <div class="col-2 offset-1  perfil">
+            <a style="cursor: pointer; text-decoration: none; color: black;" (click)="llevarPerfil();" *ngIf="rolUsuario==='ROLE_USER'">Perfil</a>
         </div>
     </div>    
-  </div>
+</div>
 
-<div class="login-wrapper container  rounded">
+<div class="login-wrapper container   rounded">
     <div class="row login-logo text-center">
         <div class="col form-title">Editar Receta</div>
     </div>
@@ -88,7 +89,7 @@
         </div>
     </div>
 </div>
-<footer class="container-fluid mt-5">
+<footer class="container-fluid ">
     <div class="row">
         <div class="footer-text col-5 offset-1">
             <h3>Daily Cooking Tips and  recipes to your inbox !</h3>

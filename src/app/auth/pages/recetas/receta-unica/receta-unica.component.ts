@@ -36,6 +36,15 @@ export class RecetaUnicaComponent implements OnInit {
   
   }
 
+  
+  llevarEditarPerfil(){
+    this.router2.navigateByUrl('auth/perfil/editarPerfil')
+
+  }
+  llevarAbout(){
+    this.router2.navigateByUrl('auth/about')
+
+  }
    getRecetaById(){
      this.recetas_api.getReceraById(this.recetaId).subscribe((res:any) => {
       this.receta.push(res)
@@ -78,7 +87,7 @@ export class RecetaUnicaComponent implements OnInit {
   }
 
   editarPerfil(){
-    this.router2.navigateByUrl('perfil/editarPerfil',this.idUsuario)
+    this.router2.navigateByUrl('auth/perfil/editarPerfil/'+this.idUsuario)     
   }
 
   llevarNoticias(){

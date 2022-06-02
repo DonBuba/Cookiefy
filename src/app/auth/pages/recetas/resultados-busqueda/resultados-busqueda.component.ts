@@ -81,7 +81,16 @@ export class ResultadosBusquedaComponent implements OnInit {
     this.router2.navigateByUrl('auth/login')
 
   }
-  
+
+  llevarEditarPerfil(){
+    this.router2.navigateByUrl('auth/perfil/editarPerfil/'+this.idUsuario)     
+
+  }
+  llevarAbout(){
+    this.router2.navigateByUrl('auth/about')
+
+  }
+
   editarReceta(idReceta:any){
     this.router2.navigateByUrl('auth/recetas/editarReceta/'+idReceta)
   }

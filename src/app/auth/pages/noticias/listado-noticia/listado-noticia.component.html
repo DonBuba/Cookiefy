@@ -1,41 +1,63 @@
-<div class="container navbar">
+<div class="container-fluid navbar">
     <div class="row d-flex">
-        <div class="col">
-            <a [routerLink]="['']" class="navbar-brand">Cookiefy</a>
+        <div class="col-2 offset-1">
+            
+            <a [routerLink]="['']" class="navbar-brand"><img class="logo" src="../../../../assets/images/logo.png" alt="logo-cookiefy"></a>
         </div>
-        <div class="col mr-auto">
+        <div class="col-5 offset-1 mr-auto">
             <ul class="d-flex flex-row nav-links">
-                <li><a (click)="llevarRecetas();">Recetas</a></li>
-                <li><a (click)="llevarNoticias()">Noticias</a></li>
-                <li><a [routerLink]="['about']">About</a></li>
-                <li><a (click)="llevarLogin()" *ngIf=" rolUsuario == null">Login</a></li>
-                <li><a (click)="logOut()" *ngIf=" rolUsuario != null">Log Out</a></li>
-  
+                <li style="cursor: pointer;"><a (click)="llevarRecetas();">Recetas</a></li>
+                <li style="cursor: pointer;"><a (click)="llevarNoticias()">Noticias</a></li>
+                <li style="cursor: pointer;"><a (click)="llevarAbout()">About</a></li>
+                <li style="cursor: pointer;"><a (click)="llevarLogin()" *ngIf=" rolUsuario == null">Login</a></li>
+                <li style="cursor: pointer;"><a (click)="logOut()" *ngIf=" rolUsuario != null">Log Out</a></li>
+                <li style="cursor: pointer;"><a (click)="llevarEditarPerfil();" *ngIf=" rolUsuario ===  'ROLE_USER'">Editar perfil</a></li>
+
             </ul>
         </div>
-        <div class="col">
-            <a style="cursor: pointer;" (click)="llevarPerfil()" *ngIf="rolUsuario=='ROLE_USER'">Perfil</a>
+        <div class="col-2 offset-1  perfil">
+            <a style="cursor: pointer; text-decoration: none; color: black;" (click)="llevarPerfil();" *ngIf="rolUsuario==='ROLE_USER'">Perfil</a>
         </div>
     </div>    
-  </div>
-  
+</div>
+
 <div class="container">
-    <div class="row">
-        <div class="col noticias-titulo">
+    <div class="row noticias-titulo ">
+        <div class="col ">
             <h2>Noticias</h2>
         </div>
-    </div>
-</div>
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-4 offset-1">
+        <div class="col d-flex justify-content-end ">
             <button class="btn btn-primary" [routerLink]="['crearNoticia']" *ngIf="rolUsuario == 'ROLE_ADMIN'">Añadir Noticia</button>
         </div>
     </div>
 </div>
-<div class="container mt-5" *ngFor="let noticia of noticias">
-    <div class="row d-flex flex-row">
-        <div class="col d-flex flex-column p-5">
+
+<div class="container mt-5" *ngFor="let noticia of noticias; let i = index">
+    <ng-container *ngIf=" i % 2 != 0 else reves">
+        <div class="row d-flex flex-row card-receta">
+            <div class="col d-flex flex-column justify-content-center align-items-start " style="padding-right: 2rem;">
+                <h3>{{noticia.titulo}}</h3>
+                <p class="mt-4">{{noticia.cuerpo}}</p>
+                <div class="container">
+                    <div class="row mt-4">
+                        <div class="col">
+                            <button class="btn btn-primary" [routerLink]="['editarNoticia/'+ noticia.id]" *ngIf="rolUsuario == 'ROLE_ADMIN'">Editar</button>
+                            <button class="btn btn-danger" (click)="borrarNoticia(noticia.id);" *ngIf="rolUsuario == 'ROLE_ADMIN'">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <img class="img-fluid" src="{{noticia.link}}" alt="">
+            </div>
+        </div>
+    </ng-container>
+   <ng-template  #reves >
+    <div class="row d-flex flex-row card-receta">
+        <div class="col">
+            <img class="img-fluid" src="{{noticia.link}}" alt="">
+        </div>
+        <div class="col d-flex flex-column justify-content-center align-items-start" style="padding-left: 2rem;">
             <h3>{{noticia.titulo}}</h3>
             <p class="mt-4">{{noticia.cuerpo}}</p>
             <div class="container">
@@ -47,10 +69,8 @@
                 </div>
             </div>
         </div>
-        <div class="col">
-            <img class="img-fluid" src="{{noticia.link}}" alt="">
-        </div>
     </div>
+   </ng-template>
 </div>
 
 <footer class="container-fluid mt-5">

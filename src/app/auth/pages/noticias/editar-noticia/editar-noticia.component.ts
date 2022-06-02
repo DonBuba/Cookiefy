@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AccesoApiService } from 'src/app/services/acceso-api.service';
 import { editarNoticiaData, NoticiasApiService } from 'src/app/services/noticias-api.service';
 
@@ -29,6 +30,7 @@ export class EditarNoticiaComponent implements OnInit {
   editarNoticia(){
     this.noticias_api.editarNoticia(this.editarNoticiasData,this.idNoticia).subscribe((res:any) =>{
       console.log(res)
+
     })
   }
 
@@ -70,4 +72,13 @@ export class EditarNoticiaComponent implements OnInit {
     this.router2.navigateByUrl('auth/login')
 
   }
+  llevarEditarPerfil(){
+    this.router2.navigateByUrl('auth/perfil/editarPerfil/'+this.idUsuario)     
+
+  }
+  llevarAbout(){
+    this.router2.navigateByUrl('auth/about')
+
+  }
+
 }

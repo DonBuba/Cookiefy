@@ -40,7 +40,7 @@ export class CrearCategoriaComponent implements OnInit {
   }
 
   editarPerfil(){
-    this.router2.navigateByUrl('perfil/editarPerfil',this.idUsuario)
+    this.router2.navigateByUrl('auth/perfil/editarPerfil/'+this.idUsuario)     
   }
 
   llevarNoticias(){
@@ -57,6 +57,14 @@ export class CrearCategoriaComponent implements OnInit {
 
   llevarLogin(){
     this.router2.navigateByUrl('auth/login')
+
+  }
+  llevarEditarPerfil(){
+    this.router2.navigateByUrl('auth/perfil/editarPerfil/'+this.idUsuario)     
+
+  }
+  llevarAbout(){
+    this.router2.navigateByUrl('auth/about')
 
   }
   

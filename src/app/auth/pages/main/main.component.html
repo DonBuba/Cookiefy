@@ -1,9 +1,10 @@
-<div class="container navbar">
+<div class="container-fluid navbar">
     <div class="row d-flex">
-        <div class="col">
-            <a [routerLink]="['']" class="navbar-brand">Cookiefy</a>
+        <div class="col-2 offset-1">
+            
+            <a [routerLink]="['']" class="navbar-brand"><img class="logo" src="../../../../assets/images/logo.png" alt="logo-cookiefy"></a>
         </div>
-        <div class="col mr-auto">
+        <div class="col-5 offset-1 mr-auto">
             <ul class="d-flex flex-row nav-links">
                 <li ><a [routerLink]="['recetas']">Recetas</a></li>
                 <li ><a [routerLink]="['noticias']">Noticias</a></li>
@@ -14,7 +15,7 @@
 
             </ul>
         </div>
-        <div class="col">
+        <div class="col-2 offset-1  perfil">
             <a style="cursor: pointer; text-decoration: none; color: black;" [routerLink]="['perfil']" *ngIf="rolUsuario==='ROLE_USER'">Perfil</a>
         </div>
     </div>    

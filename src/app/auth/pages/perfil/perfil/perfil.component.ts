@@ -71,4 +71,16 @@ export class PerfilComponent implements OnInit {
     this.router2.navigateByUrl('auth/login')
 
   }
+  llevarEditarPerfil(){
+    this.router2.navigateByUrl('auth/perfil/editarPerfil/'+this.idUsuario)     
+
+  }
+  llevarAbout(){
+    this.router2.navigateByUrl('auth/about')
+
+  }
+
+
+
+
 }

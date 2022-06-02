@@ -133,4 +133,13 @@ export class AniadirRecetaComponent implements OnInit {
     this.router.navigateByUrl('auth/login')
 
   }
+  llevarEditarPerfil(){
+    this.router.navigateByUrl('auth/perfil/editarPerfil/'+this.idUsuario)     
+
+  }
+  llevarAbout(){
+    this.router.navigateByUrl('auth/about')
+
+  }
+
 }

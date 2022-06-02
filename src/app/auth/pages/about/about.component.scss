@@ -1,0 +1,67 @@
+
+@font-face{
+    font-family: "Play Fair Normal";
+    src:url('../../../../assets/Playfair/PlayfairDisplay-Italic-VariableFont_wght.ttf');
+}
+
+
+@font-face{
+    font-family: "Play Fair SBI";
+    src:url('../../../../assets/Playfair/PlayfairDisplay-SemiBoldItalic.ttf');
+}
+    
+
+.about-title{
+    padding-bottom: 1rem;
+    border-bottom: 1px black solid;
+    h3{
+        font-family: "Play Fair Normal";
+    }
+}
+
+.about-prin-txt{
+    margin-top:3rem;
+    p{
+        font-size:clamp(1rem,1.3em,1.7rem);
+    }
+}
+
+.about-second{
+    margin-top: 8rem;
+
+    h3{
+        font-family: "Play Fair SBI";
+        font-size: clamp(2rem,2.5rem,2.8rem);
+    }
+    p{
+        font-size:clamp(1rem,1.3em,1.7rem);
+    }
+}
+
+
+
+.about-third{
+    margin-top: 5rem;
+    margin-bottom: 8rem;
+    h3{
+        font-family: "Play Fair SBI";
+        font-size: clamp(2rem,2.5rem,2.8rem);
+    }
+    p{
+        font-size:clamp(1rem,1.3em,1.7rem);
+    }
+}
+
+.about-first{
+    height: 30rem;
+    overflow: hidden;
+  
+}
+
+.about-main{
+    h4{
+        font-family: "Play Fair Normal";
+        font-size: clamp(2rem,2.5rem,2.8rem);
+    }
+    }
+    
